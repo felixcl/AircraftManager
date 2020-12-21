@@ -39,16 +39,23 @@ web3 = new Web3(App.web3Provider);
     
       // Set the provider for our contract
       App.contracts.Adoption.setProvider(App.web3Provider);
-    
-      // Use our contract to retrieve and mark the adopted pets
+      
+      // Load information
+      web3.eth.getAccounts(function(error, accounts) {
+        if (error) {
+          console.log(error);
+        }
+      vu.wallet = accounts[0];
+      App.GetTailNumber();
+      // Use our contract to retrieve flight hours
       return App.GetFlightHours();
     });
-    return App.bindEvents();
+    //return App.bindEvents();
   },
 
-  bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
-  },
+  //bindEvents: function() {
+  //  $(document).on('click', '.btn-adopt', App.handleAdopt);
+  //},
 
   GetFlightHours: function() {
     var aircraftManagerInstance;
@@ -82,12 +89,12 @@ App.contracts.AircraftManager.deployed().then(function(instance) {
 
   },
 
-  handleAdopt: function(event) {
+  logFlightHour: function(event) {
     event.preventDefault();
 
-    var petId = parseInt($(event.target).data('id'));
+    var flighthour = parseInt($(event.target).data('id'));
 
-    var adoptionInstance;
+    var aircraftManagerInstance;
 
 web3.eth.getAccounts(function(error, accounts) {
   if (error) {
@@ -96,8 +103,8 @@ web3.eth.getAccounts(function(error, accounts) {
 
   var account = accounts[0];
 
-  App.contracts.Adoption.deployed().then(function(instance) {
-    adoptionInstance = instance;
+  App.contracts.AircraftManager.deployed().then(function(instance) {
+    aircraftManagerInstance = instance;
 
     // Execute adopt as a transaction by sending account
     return adoptionInstance.adopt(petId, {from: account});

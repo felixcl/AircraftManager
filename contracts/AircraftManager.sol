@@ -13,7 +13,8 @@ contract AircraftManager {
   using SafeMath for uint256;
   /// @notice The TailNumber is the identification of the aircraft, a unique identifier worldwide (in the US also known as N-number)
   string public tailNumber;
-  uint pricePerHour;
+  /// @notice Price to pay per hour of flight
+  uint public pricePerHour;
   address payable owner;
   /// @notice Total flight hours of this aircraft
   uint public flightHours;
@@ -63,6 +64,7 @@ contract AircraftManager {
   /// @param _pricePerHour Sets the price per hour to pay for each hour flown by pilots
   constructor(string memory _tailNumber, uint _initialHours, uint _pricePerHour) public {
     owner = msg.sender;
+    coOwner[msg.sender] = true;
     tailNumber = _tailNumber;
     flightHours = _initialHours;
     pricePerHour = _pricePerHour;
