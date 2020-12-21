@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+    
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>Using Wallet: </v-container>
+        <v-container>Operating with aircraft {{tailnumber}}</v-container>
+        <v-container>Total hours {{hours}}</v-container>
+        <v-container>Log flight hours:
+        XX
+        XXX
+        XXXX
+
+        </v-container>
+        <v-container>Owner only:
+            XX
+            XXX
+            XXXX
+    
+            </v-container>
+       
+        <v-container><v-btn elevation="2" v-on:click="greet">Boton click</v-btn></v-container>
+        <v-container>
+        <div id="example-1">
+            <v-btn v-on:click="counter += 1">Add 1</v-btn>
+            <p>The button above has been clicked {{ counter }} times.</p>
+        </div>
+        <v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/front.js"></script>   
+</body>
