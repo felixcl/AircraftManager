@@ -1,0 +1,3 @@
+Deployed on testnet Ropsten 
+Contract address for aircraft CC-ABC:
+0x4e13cEb1947ea305bb5B1a3c67e638d390864D7F

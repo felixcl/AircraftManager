@@ -12783,6 +12783,57 @@
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x588d3f0479091e4fb3852e4826b1cb72f200f375e7e57a4cbb24343c78441de5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "pilot",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "flightHours",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "date",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogFlightHour",
+          "type": "event"
+        },
+        "0x89015af9fb0fbfa1f6c7c396b5f1538e1db65958423f840a90365f882857bd44": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "mechanic",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "date",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogMaintenance",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4e13cEb1947ea305bb5B1a3c67e638d390864D7F",
+      "transactionHash": "0x4fbb3795d244528ed26203c00f57bdc43ac54db3fd172122b78c356db3d6ccce"
+    },
     "5777": {
       "events": {
         "0x588d3f0479091e4fb3852e4826b1cb72f200f375e7e57a4cbb24343c78441de5": {
@@ -12836,7 +12887,7 @@
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2020-12-22T03:44:22.096Z",
+  "updatedAt": "2020-12-22T06:08:40.064Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Felix Halcartegaray",

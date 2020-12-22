@@ -52,13 +52,8 @@ web3 = new Web3(App.web3Provider);
       App.GetState();
       // Use our contract to retrieve flight hours
       return App.GetFlightHours();
-    //return App.bindEvents();
   })
   },
-
-  //bindEvents: function() {
-  //  $(document).on('click', '.btn-adopt', App.handleAdopt);
-  //},
 
   GetFlightHours: function() {
     var aircraftManagerInstance;
@@ -141,7 +136,7 @@ web3.eth.getAccounts(function(error, accounts) {
     // Execute log as a transaction by sending account and value
     return aircraftManagerInstance.logFlightHours(_hours, _comment, {from: account, value: _amount});
   }).then(function(result) {
-    vu.hours=0;
+    vu.hourstolog="";
     vu.commenttolog="";
     return App.GetFlightHours();
   }).catch(function(err) {
@@ -166,7 +161,7 @@ App.contracts.AircraftManager.deployed().then(function(instance) {
   // Execute log as a transaction by sending account 
   return aircraftManagerInstance.updatePrice(_newprice, {from: account});
 }).then(function(result) {
-  vu.newprice = 0;
+  vu.newprice = "";
   return App.GetPriceHour();
 }).catch(function(err) {
   console.log(err.message);
