@@ -120,8 +120,8 @@ contract AircraftManager {
     returns(bool)
     {
     log.push(FlightLog({date: now, pilot: msg.sender, flightHours: _flighthours, comment: _comment}));
-    flightHours.add(_flighthours);
-    flightHoursPerPilot[msg.sender].add(_flighthours);
+    flightHours = flightHours.add(_flighthours);
+    flightHoursPerPilot[msg.sender] = flightHoursPerPilot[msg.sender].add(_flighthours);
     emit LogFlightHour(msg.sender, _flighthours, now);
 
     return true;
