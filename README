@@ -1,0 +1,47 @@
+AIRCRAFT MANAGER
+
+Some aircraft are owned by multiple people, and the need to handle payments between them when they use it, to make sure there is enough money to pay for maintenance and expenses.
+Also, aircraft logs are very important because they show the real usage and maintenance of the aircraft, and a complete and credible log increases the value of the aircraft.
+Since this information is valuable and should be trusted in a trustless environment, it is perfect for a blockchain, and this contract wants to solve this problem.
+
+The contract represents one aircraft (it should be deployed for each aircraft that we want to manage). Since log entries must be credible, the best way to handle them is to attach a cost to each log.
+When someone flies, to be part of the log they need to pay for their flight hours (this solves the problem of paying for the flight and also logging real hours, because you need to pay those hours) 
+and when the aircraft has maintenance, this change will also be stored on the blockchain and the payment will occur there. We could also have a maintenance log as a possible extension to this contract.
+
+The project directory is as follows:
+It is a truffle project, containing:
+./build/contracts: Artifacts from the Truffle build
+./contracts: Smart contracts in Solidity
+./front: Frontend files using Vuetify and Web3
+./migrations: Migration files
+./node_modules: npm modules, including openzeppelin libraries (the contract uses SafeMath) and liteserver
+./test: Test for the module
+./bsconfig.json: Configuration file for liteserver, serving the files in ./front and ./build/contracts artifacts
+./truffle-config.json: Configuration file for truffle with development network using Ganache GUI at localhost port 7545
+
+The test aircraft is configured in the file ./migrations/2_deploy_aircraftmanager.js
+
+You need to have a web3 compatible browser or install Metamask add-on before running.
+
+To build and run locally:
+$ npm install -g truffle
+Then install Ganache GUI from https://www.trufflesuite.com/ganache or you can install ganache-cli with npm install -g ganache-cli but reconfigure port at truffle-config.js file.
+Go to the project directory and run:
+$ truffle migrate
+
+Then run liteserver and serve the frontend:
+$ npm run dev
+
+If you want to run the tests, you can use:
+$ truffle test
+
+Some of the user stories implemented (co-owner is considered the same as a pilot in this contract):
+As an aircraft owner I want to have money to repair aircraft so we can keep flying
+As an aircraft mechanic I want to be paid on time so I can continue working
+As an aircraft owner I want to know who flies my aircraft so I can keep logs updated
+As an aircraft owner I want to grant or remove authorization to fly the aircraft so I can keep flying safely
+As an aircraft co-owner I want to pay for the flight hours so we don’t have debts
+As an aircraft owner I want to make sure I approve new co-owners before they can be so that we make sure safe people fly the aircraft
+As an aircraft owner or co-owner I want to know the total flight hours of the aircraft so I can prepare for maintenance
+As an aircraft owner I want to establish the flight cost per hour so co-owners can pay the right amount
+As an aircraft owner I want to send the aircraft to maintenance and control the maximum cost 
